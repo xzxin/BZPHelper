@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view>
+    <view>
+      <view>
+      <view class="select_player">参赛选手</view>
+      <checkbox class="checkbox"/>
+      <image src="../../images/陈立祥.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/郭立恒.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/黄鹏.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/金秋龙.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/施廷波.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/石岩.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/谭言仝.png"   mode="widthFix" class="pic"></image>
+      <checkbox class="checkbox"/>
+      <image src="../../images/夏振新.png"   mode="widthFix" class="pic"></image>
+      <button size="default" bindtap="press"></button>
+        <!-- <checkbox-group bindchange="checkboxChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+              {{item.name}}
+            </view>
+
+          </label>
+        </checkbox-group> -->
+      </view>
+    </view>
+</view>
+

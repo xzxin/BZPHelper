@@ -1,0 +1,35 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.select_player {
+  text-align: left;
+  font-size: large;
+  margin-left: 1rem;
+}
+
+.pic {
+  width: 80px;
+  height: 80px;
+}
+
+.checkbox {
+  width: 0px;
+  margin:0px;
+}
