@@ -3,22 +3,14 @@
     <view>
       <view>
       <view class="select_player">参赛选手</view>
-      <checkbox class="checkbox"/>
-      <image src="../../images/陈立祥.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/郭立恒.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/黄鹏.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/金秋龙.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/施廷波.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/石岩.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/谭言仝.png"   mode="widthFix" class="pic"></image>
-      <checkbox class="checkbox"/>
-      <image src="../../images/夏振新.png"   mode="widthFix" class="pic"></image>
+
+      <view class='imgbox'>
+        <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
+            <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
+            <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
+            <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
+        </view>
+    </view>
       <button size="default" bindtap="press"></button>
         <!-- <checkbox-group bindchange="checkboxChange">
           <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
