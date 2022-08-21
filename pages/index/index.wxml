@@ -1,27 +1,9 @@
-<!--index.wxml-->
+<!--pages/index/index.wxml-->
+<text>pages/index/index.wxml</text>
+
 <view>
-    <view>
-      <view>
-      <view class="select_player">参赛选手</view>
-
-      <view class='imgbox'>
-        <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
-            <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
-            <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
-            <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
-        </view>
-    </view>
-      <button size="default" bindtap="press"></button>
-        <!-- <checkbox-group bindchange="checkboxChange">
-          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
-            <view class="weui-cell__hd">
-              <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
-              {{item.name}}
-            </view>
-
-          </label>
-        </checkbox-group> -->
-      </view>
+    <view class="ranklist">
+        <text>排行榜</text>
+        <button bindtap="navigateToStartGame"></button>
     </view>
 </view>
-
