@@ -8,8 +8,8 @@ Page({
     data: {
         selectedRank: true,
         selectedBlast: false,
-        rankHeader: ["排名", "选手","胜率","总局数","胜局数"],
-        blastHeader: ["排名", "选手","胜率","总局数","胜局数"],
+        rankHeader: ["排名", "选手","胜率","总局","胜局"],
+        blastHeader: ["排名", "选手","胜率","总局","胜局"],
         user_info_list_rank: [],
         user_info_list_blast: []
     },

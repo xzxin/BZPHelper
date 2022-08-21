@@ -13,7 +13,17 @@ Page({
           {value: 'hp', path: "../../images/hp.png", reward: "", label: "黄鹏"},
           {value: 'glh', path: "../../images/glh.png", reward: "", label: "郭立恒"},
           {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩"}
-        ]
+        ],
+        baseBombRuleIndex: 0,
+        baseBombRule:"首炸翻番，其余加底",
+        allBombRules:["首炸翻番，其余加底", "炸弹翻番"],
+        baoBombRule:"同普通情况",
+        allBaoBombRules:["同普通情况", "加底"]
+      },
+      bindBaseBombRuleChange(e) {
+        this.setData({
+            baseBombRule: this.data.allBombRules[e.detail.value]
+        }) 
       },
       press() {
         wx.setStorageSync("key","value");

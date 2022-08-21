@@ -1,18 +1,28 @@
 <!--index.wxml-->
 <view>
-    <view>
-      <view>
-      <view class="select_player">参赛选手</view>
-
-      <view class='imgbox'>
-        <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
-            <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
-            <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
-            <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
+    <view class="select_player">
+        <text>一、参赛选手</text>
+        <view class='imgbox'>
+            <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
+                <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
+                <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
+                <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
+            </view>
         </view>
     </view>
-      <button size="default" bindtap="navigateToIndex"></button>
-      </view>
+
+    <view class="configure_game_rule">
+        <text>二、配置规则</text>
+        <view class="bomb_rule">
+            <picker bindchange="bindBaseBombRuleChange"  mode="selector" value="{{baseBombRuleIndex}}" range="{{allBombRules}}">
+                <view class="picker">
+                    普通局炸弹规则: {{baseBombRule}}
+                </view>
+            </picker>
+            <label>暴牌局炸弹规则</label>
+            <picker mode="selector" value="{{baoBombRule}}" range="{{allBaoBombRules}}">
+            </picker>
+        </view>
     </view>
 </view>
 

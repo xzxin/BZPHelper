@@ -1,6 +1,10 @@
 <!--pages/index/index.wxml-->
 <view>
-    <text>排行榜</text>
+    <view class="rank_list_header">
+        <text class="rank_header">排行榜</text>
+        <image class="rank_flag" src="../../images/flag.png" mode="widthFix"></image>
+    </view>
+
     <view class="rank">
         <view class="nav">
             <view class="{{selectedRank?'bold':'default'}}" bindtap="selectRank">胜率排行榜</view>
@@ -51,6 +55,16 @@
             </scroll-view>
         </view>
     </view>
-    
-    <button bindtap="navigateToStartGame"></button>
+
+    <view class="options">
+        <view class="buttons">
+            <text class="start_text">
+                开一把
+            </text>
+            <image class="start_game_img" mode="widthFix" src="../../images/start.png"
+            bindtap="navigateToStartGame">
+            </image>
+        </view>
+    </view>
+
 </view>
