@@ -1,0 +1,18 @@
+<!--index.wxml-->
+<view>
+    <view>
+      <view>
+      <view class="select_player">参赛选手</view>
+
+      <view class='imgbox'>
+        <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
+            <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
+            <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
+            <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
+        </view>
+    </view>
+      <button size="default" bindtap="navigateToIndex"></button>
+      </view>
+    </view>
+</view>
+

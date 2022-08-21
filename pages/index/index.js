@@ -6,12 +6,28 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        selectedRank: true,
+        selectedBlast: false
     },
 
     navigateToStartGame() {
         wx.navigateTo({
           url: '/pages/start_game/start_game',
+        })
+    },
+
+    selectRank() {
+        this.setData({
+            selectedRank: true,
+            selectedBlast: false
+        })
+    },
+
+    
+    selectedBlast() {
+        this.setData({
+            selectedRank: false,
+            selectedBlast: true
         })
     },
 

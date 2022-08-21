@@ -1,9 +1,18 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
-
 <view>
-    <view class="ranklist">
-        <text>排行榜</text>
-        <button bindtap="navigateToStartGame"></button>
+    <text>排行榜</text>
+    <view class="rank">
+        <view class="nav">
+            <view class="{{selectedRank?'bold':'default'}}" bindtap="selectRank">胜率排行榜</view>
+            <view class="{{selectedBlast?'bold':'default'}}" bindtap="selectedBlast">爆牌排行榜</view>
+        </view>
+        <view class="{{selectedRank?'showTable':'hidden'}}">
+            胜率排行榜
+        </view>
+        <view class="{{selectedBlast?'showTable':'hidden'}}">
+            爆牌排行榜
+        </view>
     </view>
+    
+    <button bindtap="navigateToStartGame"></button>
 </view>

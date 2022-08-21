@@ -1,0 +1,60 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.select_player {
+  text-align: left;
+  font-size: large;
+  margin-left: 1rem;
+}
+
+.imgbox {
+    width: 100%;
+    height: 100%;
+    column-count: 4;
+    column-gap: 5rpx;
+}
+
+.imgline {
+    width: 100%;
+    position: relative;
+}
+
+.pic {
+  width: 80px;
+  height: 80px;
+}
+.checkbox {
+    position:absolute;
+    left: 4px;
+    top: 4px;
+    width: 100%;
+}
+
+.item_txt {
+    position:absolute;
+    bottom:6px;
+    left: 2px;
+    color:#fff;
+    background-color: #aaa;
+    font-size: small;
+    text-align: center;
+    line-height: 20px;
+    width: 76px;
+}
