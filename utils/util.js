@@ -18,6 +18,20 @@ const queryUserInfoList = () => {
     return user_info_list;
 }
 
+const queryUserBlast = () => {
+    var user_info_list = queryUserInfoList()
+    for (let i=0; i<user_info_list.length - 1; i++) {
+        for (let j= 0; j < user_info_list.length - 1 - i; j++) {
+            if (user_info_list[j]["blastWinRate"] < user_info_list[j+1]["blastWinRate"]) {
+                let temp = user_info_list[j]
+                user_info_list[j] = user_info_list[j+1]
+                user_info_list[j+1] = temp
+            }
+        }
+    }
+    return user_info_list
+}
+
 const queryUserRank = () => {
     var user_info_list = queryUserInfoList()
     for (let i=0; i<user_info_list.length - 1; i++) {
@@ -35,7 +49,7 @@ const queryUserRank = () => {
 const user_default_info_list = () => {
     var default_info_list = [
         {
-            "name": "clx",
+            "name": "陈立祥",
             "total": 0,
             "win": 0,
             "winRate": 80,
@@ -44,7 +58,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "jql",
+            "name": "金秋龙",
             "total": 0,
             "win": 0,
             "winRate": 70,
@@ -53,7 +67,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "xzx",
+            "name": "夏振新",
             "total": 0,
             "win": 0,
             "winRate": 100,
@@ -62,7 +76,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "tyt",
+            "name": "谭言仝",
             "total": 0,
             "win": 92,
             "winRate": 0,
@@ -71,7 +85,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "stb",
+            "name": "施廷波",
             "total": 42,
             "win": 0,
             "winRate": 0,
@@ -80,7 +94,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "hp",
+            "name": "黄鹏",
             "total": 79,
             "win": 0,
             "winRate": 0,
@@ -89,7 +103,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "glh",
+            "name": "郭立恒",
             "total": 0,
             "win": 0,
             "winRate": 0,
@@ -98,7 +112,7 @@ const user_default_info_list = () => {
             "blastWinRate": 0
         },
         {
-            "name": "sy",
+            "name": "石岩",
             "total": 0,
             "win": 0,
             "winRate": 0,
@@ -117,5 +131,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTime,
-  queryUserRank
+  queryUserRank,
+  queryUserBlast
 }

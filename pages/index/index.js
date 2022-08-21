@@ -7,7 +7,11 @@ Page({
      */
     data: {
         selectedRank: true,
-        selectedBlast: false
+        selectedBlast: false,
+        rankHeader: ["排名", "选手","胜率","总局数","胜局数"],
+        blastHeader: ["排名", "选手","胜率","总局数","胜局数"],
+        user_info_list_rank: [],
+        user_info_list_blast: []
     },
 
     navigateToStartGame() {
@@ -17,17 +21,21 @@ Page({
     },
 
     selectRank() {
+        var user_info = utils.queryUserRank()
         this.setData({
             selectedRank: true,
-            selectedBlast: false
+            selectedBlast: false,
+            user_info_list_rank: user_info
         })
     },
 
     
     selectedBlast() {
+        var user_info = utils.queryUserBlast()
         this.setData({
             selectedRank: false,
-            selectedBlast: true
+            selectedBlast: true,
+            user_info_list_blast: user_info
         })
     },
 
@@ -42,7 +50,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        this.selectRank()
     },
 
     /**

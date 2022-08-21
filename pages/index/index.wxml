@@ -7,10 +7,48 @@
             <view class="{{selectedBlast?'bold':'default'}}" bindtap="selectedBlast">爆牌排行榜</view>
         </view>
         <view class="{{selectedRank?'showTable':'hidden'}}">
-            胜率排行榜
+            <scroll-view scroll-y="true" style="height: {{validHeight-50}}px;">
+                <view class="table">
+                        <view class="tr h">
+                            <view class="th" wx:for="{{rankHeader}}" wx:for-item="title">
+                            {{title}}
+                            </view>
+                        </view>
+                        <block wx:for="{{user_info_list_rank}}" wx:for-index="rank" wx:for-item="item">
+                            <view class="tr">
+                                <view class="td">{{rank + 1}} </view>
+                                <view class="td">{{item.name}} </view>
+                                <view class="td">{{item.winRate}} </view>
+                                <view class="td">{{item.total}} </view>
+                                <view class="td">{{item.win}} </view>
+                            </view>
+                        </block>
+                </view>
+                <block>
+                </block>
+            </scroll-view>
         </view>
         <view class="{{selectedBlast?'showTable':'hidden'}}">
-            爆牌排行榜
+            <scroll-view scroll-y="true" style="height: {{validHeight-50}}px;">
+                <view class="table">
+                        <view class="tr h">
+                            <view class="th" wx:for="{{blastHeader}}" wx:for-item="title">
+                            {{title}}
+                            </view>
+                        </view>
+                        <block wx:for="{{user_info_list_blast}}" wx:for-index="rank" wx:for-item="item">
+                            <view class="tr">
+                                <view class="td">{{rank + 1}} </view>
+                                <view class="td">{{item.name}} </view>
+                                <view class="td">{{item.blastWinRate}} </view>
+                                <view class="td">{{item.blastTotal}} </view>
+                                <view class="td">{{item.blastWin}} </view>
+                            </view>
+                        </block>
+                </view>
+                <block>
+                </block>
+            </scroll-view>
         </view>
     </view>
     
