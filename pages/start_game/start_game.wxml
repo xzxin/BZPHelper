@@ -16,13 +16,32 @@
         <view class="bomb_rule">
             <picker bindchange="bindBaseBombRuleChange"  mode="selector" value="{{baseBombRuleIndex}}" range="{{allBombRules}}">
                 <view class="picker">
-                    普通局炸弹规则: {{baseBombRule}}
+                    <text>普通局</text>
+                    <image src="../../images/bomb.png" mode="widthFix" class="bomb_pic"/>
+                    <text class="rule_context"> {{baseBombRule}}</text>
                 </view>
             </picker>
-            <label>暴牌局炸弹规则</label>
-            <picker mode="selector" value="{{baoBombRule}}" range="{{allBaoBombRules}}">
+            <picker bindchange="bindBaoBombRuleChange"  mode="selector" value="{{baoBombRuleIndex}}" range="{{allBaoBombRules}}">
+                <view class="picker">
+                    <text>爆牌局</text>
+                    <image src="../../images/bomb.png" mode="widthFix" class="bomb_pic"/>
+                    <text class="rule_context"> {{baoBombRule}}</text>
+                </view>
             </picker>
         </view>
+    </view>
+
+    <view class="game_info">
+        <text>三、其它信息</text>
+        <view class="remarks">
+            <textarea auto-focus type="text" class="remark_input">
+            </textarea>
+        </view>
+    </view>
+
+    <view class="confirm_view">
+        <button class="confirm_button" size="default"> 确认 </button>
+        <button class="cancel_button" size="default"> 返回 </button>
     </view>
 </view>
 

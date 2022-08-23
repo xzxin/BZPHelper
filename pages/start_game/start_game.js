@@ -25,6 +25,11 @@ Page({
             baseBombRule: this.data.allBombRules[e.detail.value]
         }) 
       },
+      bindBaoBombRuleChange(e) {
+        this.setData({
+            baoBombRule: this.data.allBaoBombRules[e.detail.value]
+        }) 
+      },
       press() {
         wx.setStorageSync("key","value");
         console.log(wx.getStorageSync('key'))

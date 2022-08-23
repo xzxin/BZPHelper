@@ -22,6 +22,23 @@
   text-align: left;
   font-size: large;
   margin-left: 1rem;
+  font-weight: bold;
+}
+
+.configure_game_rule {
+    margin-top: 20px;
+    text-align: left;
+    font-size: large;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.game_info {
+    margin-top: 20px;
+    text-align: left;
+    font-size: large;
+    margin-left: 1rem;
+    font-weight: bold;
 }
 
 .imgbox {
@@ -29,6 +46,10 @@
     height: 100%;
     column-count: 4;
     column-gap: 5rpx;
+}
+
+.picker {
+    font-size: medium;
 }
 
 .imgline {
@@ -57,4 +78,48 @@
     text-align: center;
     line-height: 20px;
     width: 76px;
+}
+
+.bomb_rule {
+    margin-top: 6px;
+    font-weight: normal;
+    background-color: #f4f0e9;
+}
+
+.bomb_pic {
+    width: 20px;
+    height: 20px;
+}
+
+.rule_context {
+    margin-left: 40px
+}
+
+.remark_input {
+    border: #999 solid 2rpx;
+    height: 100px;
+    width: 90%;
+    font-weight: normal;
+    font-size: medium;
+    text-align: left;
+    margin-top: 10px
+}
+
+.confirm_view {
+    margin-top: 20px;
+    position: relative;
+}
+
+.confirm_button {
+    background-color: deepskyblue;
+    position: absolute;
+    left: 10px;
+    width: 100%;
+}
+
+.cancel_button {
+    background-color: aliceblue;
+    position: absolute;
+    left: 200px;
+    width: 60%;
 }
