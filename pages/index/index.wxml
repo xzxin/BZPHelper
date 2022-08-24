@@ -56,10 +56,15 @@
         </view>
     </view>
 
+    <view class="current_game">
+        正在进行的牌局
+        <textarea auto-focus type="text" class="game_now" value="{{game_now_info}}"></textarea>
+    </view>
+
     <view class="options">
         <view class="buttons">
             <text class="start_text">
-                开一把
+                新的牌局
             </text>
             <image class="start_game_img" mode="widthFix" src="../../images/start.png"
             bindtap="navigateToStartGame">

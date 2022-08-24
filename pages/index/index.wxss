@@ -8,6 +8,7 @@
 .rank_header {
     font-weight: bold;
     font-size: large;
+    margin-left: 10px;
 }
 
 .rank_list_header {
@@ -81,4 +82,27 @@
 
 .start_game_img {
     width: 30px
+}
+
+.current_game {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.options {
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.game_now {
+    height: 40px;
+    width: 90%;
+    font-weight: normal;
+    font-size: medium;
+    text-align: left;
+    color:#eee;
+    margin-top: 10px
 }

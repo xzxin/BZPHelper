@@ -6,6 +6,23 @@
   color: #aaa;
 }
 
+.game_name {
+    text-align: left;
+    font-size: large;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.game_name_input {
+    border: #999 solid 1rpx;
+    width: 90%;
+    font-weight: normal;
+    font-size: medium;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .userinfo-avatar {
   overflow: hidden;
   width: 128rpx;
@@ -96,7 +113,7 @@
 }
 
 .remark_input {
-    border: #999 solid 2rpx;
+    border: #999 solid 1rpx;
     height: 100px;
     width: 90%;
     font-weight: normal;

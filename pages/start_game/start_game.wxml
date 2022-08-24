@@ -1,7 +1,11 @@
 <!--index.wxml-->
 <view>
+    <view class="game_name">
+        <text>一、聚会名称</text>
+        <input type="text" class="game_name_input" value="{{game_name}}"></input>
+    </view>
     <view class="select_player">
-        <text>一、参赛选手</text>
+        <text>二、参赛选手</text>
         <view class='imgbox'>
             <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
                 <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
@@ -12,7 +16,7 @@
     </view>
 
     <view class="configure_game_rule">
-        <text>二、配置规则</text>
+        <text>三、配置规则</text>
         <view class="bomb_rule">
             <picker bindchange="bindBaseBombRuleChange"  mode="selector" value="{{baseBombRuleIndex}}" range="{{allBombRules}}">
                 <view class="picker">
@@ -32,7 +36,7 @@
     </view>
 
     <view class="game_info">
-        <text>三、其它信息</text>
+        <text>四、其它信息</text>
         <view class="remarks">
             <textarea auto-focus type="text" class="remark_input">
             </textarea>
@@ -40,7 +44,7 @@
     </view>
 
     <view class="confirm_view">
-        <button class="confirm_button" size="default"> 确认 </button>
+        <button class="confirm_button" size="default" bindtap="onConfirm"> 确认 </button>
         <button class="cancel_button" size="default"> 返回 </button>
     </view>
 </view>

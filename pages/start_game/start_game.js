@@ -18,7 +18,9 @@ Page({
         baseBombRule:"首炸翻番，其余加底",
         allBombRules:["首炸翻番，其余加底", "炸弹翻番"],
         baoBombRule:"同普通情况",
-        allBaoBombRules:["同普通情况", "加底"]
+        allBaoBombRules:["同普通情况", "加底"],
+        game_info: {},
+        game_name: ""
       },
       bindBaseBombRuleChange(e) {
         this.setData({
@@ -41,5 +43,14 @@ Page({
         wx.navigateTo({
           url: '/pages/index/index',
         })
-    }
+      },
+      onConfirm() {
+          this.data.game_info["name"] = this.data.game_name
+          this.data.game_info["player"] = []
+          this.data.game_info["gameRule"] = {
+            "baseBombRule": this.data.baseBombRule,
+            "baoBombRule": this.data.baoBombRule
+          }
+          wx.setStorageSync('cur_game', this.data.game_info)
+      }
 })

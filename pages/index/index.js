@@ -11,7 +11,8 @@ Page({
         rankHeader: ["排名", "选手","胜率","总局","胜局"],
         blastHeader: ["排名", "选手","胜率","总局","胜局"],
         user_info_list_rank: [],
-        user_info_list_blast: []
+        user_info_list_blast: [],
+        game_now_info: ""
     },
 
     navigateToStartGame() {
@@ -39,6 +40,14 @@ Page({
         })
     },
 
+    setCurGame() {
+        let game_info = wx.getStorageSync('cur_game')
+        let game_info_str = game_info === "" ? "无" : game_info["name"]
+        this.setData({
+            game_now_info: game_info_str
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -51,6 +60,7 @@ Page({
      */
     onReady() {
         this.selectRank()
+        this.setCurGame()
     },
 
     /**
