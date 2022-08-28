@@ -47,7 +47,8 @@
 
     <view class="confirm_view">
         <button class="confirm_button" size="default" bindtap="onConfirm"> 确认 </button>
-        <button class="cancel_button" size="default"> 返回 </button>
+        <button class="cancel_button" size="default"
+        bindtap="navigateToIndex"> 返回 </button>
     </view>
 </view>
 

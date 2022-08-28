@@ -9,7 +9,7 @@ const formatTime = date => {
   return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
 }
 
-const queryGameRecord = () => {
+const queryGameInfo = () => {
     return wx.getStorageSync('cur_game')
 }
 
@@ -137,5 +137,5 @@ module.exports = {
   formatTime,
   queryUserRank,
   queryUserBlast,
-  queryGameRecord
+  queryGameInfo
 }

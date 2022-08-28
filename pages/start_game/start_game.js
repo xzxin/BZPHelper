@@ -65,7 +65,7 @@ Page({
 
 
     onConfirm() {
-        if (this.data.game_info.player.length != 4) {
+        if (this.data.game_info.player.length < 4) {
             wx.showToast({
               title: '选手不足4人',
               icon: 'error',

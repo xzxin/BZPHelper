@@ -115,7 +115,7 @@
 
 .game_now {
     height: 40px;
-    width: 100%;
+    width: 80px;
     font-weight: normal;
     font-size: medium;
     text-align: left;
