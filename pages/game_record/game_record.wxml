@@ -1,0 +1,60 @@
+<!--pages/game_record.wxml-->
+<view>
+    <view class="current_record">
+        <text>
+            当前战况
+        </text>
+         <view class="game_record_table">
+            <scroll-view scroll-y="true" style="height: 280px;" class="scroll_view">
+                <view class="tr h">
+                    <view class="th"> 局数 </view>
+                    <view class="th"> 类型 </view>
+                    <view class="th"> 炸弹数 </view>
+                    <view class="th" wx:for="{{game_info.player}}" wx:for-item="player">
+                    {{player.label}}
+                    </view>
+                </view>
+            </scroll-view>
+         </view>
+        
+    </view>
+    <view class="cur_status">
+        <view>
+            <text>战况小结</text>
+        </view>
+        <view class="cur_status_detail">
+            <view  wx:for="{{game_info.player}}" wx:for-item="player" class="imgline">
+                <image bindtap="tapImg" src="{{player.path}}" mode="widthFix" class="pic"></image>
+                <text class="item_txt">{{player.label}} </text>
+            </view>
+        </view>
+    </view>
+
+    <view class="operation">
+        操作
+        <view class="new_game">
+            <text class="new_game_text" bindtap="newGame">
+                新的一局
+            </text>
+            <image class="new_game_img" mode="widthFix" src="../../images/new.png"
+            bindtap="newGame">
+            </image>
+
+            <text class="cancel_game_text" bindtap="cancelGame">
+                取消上一局
+            </text>
+            <image class="cancel_game_img" mode="widthFix" src="../../images/cancel.png"
+            bindtap="cancelGame">
+            </image>
+        </view>
+        <view class="end_operation">
+            <text class="end_operation_text" bindtap="endGame">
+                    结算
+            </text>
+            <image class="end_operation_img" mode="widthFix" src="../../images/end.png"
+            bindtap="endGame">
+            </image>
+        </view>
+
+    </view>
+</view>

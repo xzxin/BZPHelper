@@ -1,0 +1,143 @@
+/* pages/game_record.wxss */
+.current_record {
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.scroll_view {
+    height: 400px;
+}
+
+
+.tr {
+    display: flex;
+    flex-direction: row;
+    line-height: 60rpx;
+}
+
+.th, .td {  /* 公有的属性 */
+    display: flex;
+    font-size:small;
+    flex-direction: row;
+    flex-wrap: wrap;            /* 自动换行 */
+    width: 13%;					/* 4个25%相加刚好100% */
+    text-align: center;         /* 文本居中 */
+    justify-content:center;     /* 主轴居中 */
+    align-items: center;        /* 交叉轴居中 */
+    border-top: 1px solid #dadada;      /* 单元格上线框 */
+    border-bottom: 1px solid #dadada;   /* 单元格下线框 */
+}
+
+.th {
+    font-weight: normal;           /* 字体加重 */
+    background-color:#B3CCF4;   /* 背景色 */
+}
+
+.game_record_table {
+    margin-top: 10px
+}
+
+.cur_status {
+    margin-top:10px;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.cur_status_detail {
+    column-count: 2;
+    column-gap: 5rpx;
+}
+
+.pic {
+    width: 100%;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.item_txt {
+    position:absolute;
+    bottom:6px;
+    left: 2px;
+    color:#fff;
+    background-color: #aaa;
+    font-size: small;
+    text-align: center;
+    line-height: 20px;
+    width: 76px;
+}
+
+.imgline {
+    width: 100%;
+    position: relative;
+}
+
+.new_game_img {
+    width: 30px;
+    flex: 0 0 auto;
+    position: relative;
+    left: 10px;
+    top: 20px
+}
+
+.cancel_game_img {
+    width: 30px;
+    flex: 0 0 auto;
+    position: relative;
+    left: 25px;
+    top: 20px;
+}
+
+.operation {
+    margin-top:10px;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+}
+
+.new_game_text {
+    font-size: normal;
+    font-weight: bold;
+    flex: 0 0 auto;
+    position: relative;
+    left: 10px;
+}
+
+.cancel_game_text {
+    font-size: normal;
+    font-weight: bold;
+    flex: 0 0 auto;
+    position: relative;
+    left: 20px;
+}
+
+.new_game {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.end_operation {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px
+}
+
+.end_operation_text {
+    font-size: normal;
+    font-weight: bold;
+    flex: 0 0 auto;
+    position: relative;
+    left: 10px;
+}
+
+.end_operation_img {
+    width: 30px;
+    flex: 0 0 auto;
+    position: relative;
+    left: 10px;
+    top: 20px
+}
