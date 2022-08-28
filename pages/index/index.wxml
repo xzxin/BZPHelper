@@ -61,8 +61,8 @@
             正在进行的牌局
         </view>
         <view class="cur_game_view">
-            <image src="../../images/poker.png" mode="widthFix" class="cur_game_pic"></image>
-            <textarea auto-focus type="text" class="game_now" value="{{game_now_info}}"></textarea>
+            <image src="../../images/poker.png" mode="widthFix" class="cur_game_pic" bindtap="navigateToGameRecord"></image>
+            <textarea auto-focus type="text" class="game_now" value="{{game_now_info}}" bindtap="navigateToGameRecord"></textarea>
         </view>
     </view>
 

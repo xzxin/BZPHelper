@@ -21,6 +21,12 @@ Page({
         })
     },
 
+    navigateToGameRecord() {
+        wx.navigateTo({
+          url: '/pages/game_record/game_record',
+        })
+    },
+
     selectRank() {
         var user_info = utils.queryUserRank()
         this.setData({

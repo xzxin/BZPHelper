@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/start_game/start_game"
+        "pages/start_game/start_game",
+        "pages/game_record/game_record"
     ],
     "window": {
         "backgroundTextStyle": "light",

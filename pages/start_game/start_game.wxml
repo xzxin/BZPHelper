@@ -7,11 +7,13 @@
     <view class="select_player">
         <text>二、参赛选手</text>
         <view class='imgbox'>
-            <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
-                <image bindtap="tapImg" src="{{role.path}}" data-id="{{index}}"  mode="widthFix" class="pic"></image>
-                <checkbox class="checkbox" bindtap='tapCheck' data-id="{{index}}"/>
-                <text class="item_txt" data-id="{{index}}">{{role.label}}</text>
-            </view>
+            <checkbox-group bindchange="checkboxChange">
+                <view class='imgline' wx:for="{{roles}}" wx:for-item="role">
+                    <image bindtap="tapImg" src="{{role.path}}" mode="widthFix" class="pic"></image>
+                    <checkbox class="checkbox"  value="{{role.value}}"/>
+                    <text class="item_txt">{{role.label}} </text>
+                 </view>
+            </checkbox-group>
         </view>
     </view>
 

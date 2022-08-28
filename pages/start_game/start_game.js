@@ -36,9 +36,6 @@ Page({
         wx.setStorageSync("key","value");
         console.log(wx.getStorageSync('key'))
       },
-      tapCheck(e) {
-        const roles = this.data.roles
-      },
       navigateToIndex() {
         wx.navigateTo({
           url: '/pages/index/index',
@@ -49,14 +46,39 @@ Page({
             game_name: res.detail.value
         })
     },
+    navigateToGameRecord() {
+        wx.navigateTo({
+          url: '/pages/game_record/game_record',
+        })
+      },
+
+      checkboxChange(e) {
+        let checkedNames = e.detail.value
+        this.data.game_info["player"] = []
+        let roles = this.data.roles
+        for (let i=0; i<roles.length; i++) {
+            if (checkedNames.indexOf(roles[i].value) != -1) {
+                this.data.game_info["player"].push(roles[i]);
+            }
+        }
+      },
+
 
     onConfirm() {
+        if (this.data.game_info.player.length != 4) {
+            wx.showToast({
+              title: '选手不足4人',
+              icon: 'error',
+              duration: 2000
+            })
+            return;
+        }
         this.data.game_info["name"] = this.data.game_name
-        this.data.game_info["player"] = []
         this.data.game_info["gameRule"] = {
         "baseBombRule": this.data.baseBombRule,
         "baoBombRule": this.data.baoBombRule
         }
         wx.setStorageSync('cur_game', this.data.game_info)
+        this.navigateToGameRecord()
     }
 })

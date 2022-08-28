@@ -9,6 +9,10 @@ const formatTime = date => {
   return `${[year, month, day].map(formatNumber).join('/')} ${[hour, minute, second].map(formatNumber).join(':')}`
 }
 
+const queryGameRecord = () => {
+    return wx.getStorageSync('cur_game')
+}
+
 const queryUserInfoList = () => {
     var user_info_list = wx.getStorageSync('user_info_list')
     if (user_info_list === "") {
@@ -132,5 +136,6 @@ const formatNumber = n => {
 module.exports = {
   formatTime,
   queryUserRank,
-  queryUserBlast
+  queryUserBlast,
+  queryGameRecord
 }
