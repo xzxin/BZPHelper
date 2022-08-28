@@ -2,7 +2,7 @@
 <view>
     <view class="game_name">
         <text>一、聚会名称</text>
-        <input type="text" class="game_name_input" value="{{game_name}}"></input>
+        <input type="text" class="game_name_input" bindinput="game_name_change" value="{{game_name}}"></input>
     </view>
     <view class="select_player">
         <text>二、参赛选手</text>

@@ -44,13 +44,19 @@ Page({
           url: '/pages/index/index',
         })
       },
-      onConfirm() {
-          this.data.game_info["name"] = this.data.game_name
-          this.data.game_info["player"] = []
-          this.data.game_info["gameRule"] = {
-            "baseBombRule": this.data.baseBombRule,
-            "baoBombRule": this.data.baoBombRule
-          }
-          wx.setStorageSync('cur_game', this.data.game_info)
-      }
+    game_name_change(res) {
+        this.setData ({
+            game_name: res.detail.value
+        })
+    },
+
+    onConfirm() {
+        this.data.game_info["name"] = this.data.game_name
+        this.data.game_info["player"] = []
+        this.data.game_info["gameRule"] = {
+        "baseBombRule": this.data.baseBombRule,
+        "baoBombRule": this.data.baoBombRule
+        }
+        wx.setStorageSync('cur_game', this.data.game_info)
+    }
 })

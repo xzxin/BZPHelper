@@ -52,23 +52,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        this.selectRank()
-        this.setCurGame()
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        var user_info_list = utils.queryUserRank()
-        console.log(user_info_list)
+        this.selectRank()
+        this.setCurGame()
     },
 
     /**

@@ -81,7 +81,22 @@
 }
 
 .start_game_img {
-    width: 30px
+    margin-top: 10px;
+    width: 50px
+}
+
+.cur_game_view {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.cur_game_pic {
+    width: 40px;
+    margin-top: 20px;
+    flex: 0 0 auto;
+    position: relative;
+    left: 10px;
 }
 
 .current_game {
@@ -95,14 +110,20 @@
     font-weight: bold;
     font-size: large;
     margin-left: 10px;
+    margin-top:80px
 }
 
 .game_now {
     height: 40px;
-    width: 90%;
+    width: 100%;
     font-weight: normal;
     font-size: medium;
     text-align: left;
-    color:#eee;
-    margin-top: 10px
+    color:black;
+    margin-top: 10px;
+    position: relative;
+    left: 20px;
+    top:20px;
+    flex: 0 0 auto;
+    
 }
