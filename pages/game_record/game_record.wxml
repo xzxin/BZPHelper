@@ -14,6 +14,7 @@
                     {{player.label}}
                     </view>
                 </view>
+
             </scroll-view>
          </view>
         
@@ -36,6 +37,19 @@
             <text class="new_game_text" bindtap="newGame">
                 新的一局
             </text>
+            <modal hidden="{{hiddenCurGame}}" title="本局战况" confirm-text="确定" cancel-text="取消" bindcancel="cancelInput" bindconfirm="confirmInput">
+                <view class="current_game">
+                    <radio-group bindchange="radioChange">
+                        <label class="check_label" wx:for="{{types}}" wx:key="{{item.name}}">
+
+                        <view class="game_type_select">
+                            <radio value="{{item.value}}" checked="{{item.checked}}"/>
+                            {{item.name}}
+                        </view>
+                        </label>
+                    </radio-group>
+                </view>
+            </modal>
             <image class="new_game_img" mode="widthFix" src="../../images/new.png"
             bindtap="newGame">
             </image>

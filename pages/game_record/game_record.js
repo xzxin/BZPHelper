@@ -6,12 +6,37 @@ Page({
      * 页面的初始数据
      */
     data: {
-        game_record:[]
+        game_record:[],
+        hiddenCurGame: true,
+        types: [{value: 'plain', name: '赢单', checked: 'true'},
+        {value: 'turnoff', name: '关机'},
+        {value: 'blastWin', name: '爆赢'},
+        {value: 'blastLose', name: '爆输'}]
     },
 
     navigateToIndex() {
         wx.navigateTo({
           url: '/pages/index/index',
+        })
+    },
+    cancelInput() {
+        this.setData ({
+            hiddenCurGame: true
+        })
+    },
+    confirmInput() {
+        // let game_record = this.data.game_record
+        // record.no = game_record.length + 1
+        // game_record.push(record)
+        this.setData ({
+            hiddenCurGame: true,
+            // game_record: game_record
+        })
+    },
+
+    newGame() {
+        this.setData ({
+            hiddenCurGame: false
         })
     },
 
@@ -31,10 +56,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
+        let game_record = utils.queryGameRecords();
         let game_info = utils.queryGameInfo();
         this.setData({
-            game_info: game_info
+            game_info: game_info,
+            game_record: game_record
         });
+        console.log(this.data.game_info)
         console.log(this.data.game_info)
     },
 

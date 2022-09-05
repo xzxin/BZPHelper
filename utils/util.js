@@ -50,6 +50,14 @@ const queryUserRank = () => {
     return user_info_list
 }
 
+const queryGameRecords = () => {
+    var game_records = wx.getStorageSync('game_records')
+    if (game_records == null) {
+        return [];
+    }
+    return game_records;
+}
+
 const user_default_info_list = () => {
     var default_info_list = [
         {
@@ -137,5 +145,6 @@ module.exports = {
   formatTime,
   queryUserRank,
   queryUserBlast,
-  queryGameInfo
+  queryGameInfo,
+  queryGameRecords,
 }

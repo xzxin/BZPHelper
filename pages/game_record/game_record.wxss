@@ -141,3 +141,12 @@
     left: 10px;
     top: 20px
 }
+
+.check_label {
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.game_type_select {
+
+}
