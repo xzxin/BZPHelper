@@ -15,10 +15,10 @@ Page({
           {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩"}
         ],
         baseBombRuleIndex: 0,
-        baseBombRule:"首炸翻番，其余加底",
-        allBombRules:["首炸翻番，其余加底", "炸弹翻番"],
-        baoBombRule:"同普通情况",
-        allBaoBombRules:["同普通情况", "加底"],
+        baseBombRule:"炸弹翻番",
+        allBombRules:["首炸翻番，其余加底", "炸弹翻番", "炸弹加底"],
+        baoBombRule:"首炸翻番，其余加底",
+        allBaoBombRules:["首炸翻番，其余加底", "炸弹翻番", "炸弹加底"],
         game_info: {},
         game_name: ""
       },
@@ -79,6 +79,7 @@ Page({
         "baoBombRule": this.data.baoBombRule
         }
         wx.setStorageSync('cur_game', this.data.game_info)
+        wx.setStorageSync('gameRule', this.data.game_info["gameRule"])
         this.navigateToGameRecord()
     }
 })

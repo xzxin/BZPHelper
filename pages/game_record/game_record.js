@@ -66,7 +66,15 @@ Page({
             })
             return;
         }
+        let base = utils.queryScoreWinLose(current_game_type, this.data.bomb_cnt)
+        console.log("base = ", base)
+        console.log(this.data)
+        console.log(win_players)
+        for (let i=0; i < game_players.length; i++) {
+            let player = game_players[i];
 
+
+        }
         game_records.push(record)
         this.setData ({
             hiddenCurGame: true,
@@ -108,7 +116,7 @@ Page({
         this.setData({
             game_info: game_info,
             game_record: game_record,
-            game_player: game_player
+            game_players: game_player
         });
         console.log(this.data.game_info)
     },
@@ -156,9 +164,8 @@ Page({
     },
 
     bombCntInput(e) {
-        console.log(e)
         this.setData({
-            bomb_cnt:e.detail.value
+            bomb_cnt:Number(e.detail.value)
         })
     }
 })

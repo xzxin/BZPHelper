@@ -58,6 +58,35 @@ const queryGameRecords = () => {
     return game_records;
 }
 
+const queryScoreWinLose = (type, bombCnt) => {
+    let game_rule = wx.getStorageSync('gameRule')
+
+    let baseBombRule = game_rule["baseBombRule"]
+    let baoBombRule = game_rule["baoBombRule"]
+    let base;
+    let bombRule = baseBombRule;
+    console.log("bombRule is " + bombRule)
+    if (type == "plain") {
+        base = 1;
+    } else if (type == "turnoff") {
+        base = 2;
+    } else {
+        base = 3;
+        bombRule = baoBombRule;
+    }
+    if (bombCnt == 0) {
+        return base;
+    }
+    if (bombRule == "首炸翻番，其余加底") {
+        return 2 * base + bombCnt - 1;
+    } else if (bombRule == "炸弹翻番") {
+        return base * bombCnt;
+    } else {
+        return base + bombCnt;
+    }
+
+}
+
 const user_default_info_list = () => {
     var default_info_list = [
         {
@@ -147,4 +176,5 @@ module.exports = {
   queryUserBlast,
   queryGameInfo,
   queryGameRecords,
+  queryScoreWinLose
 }

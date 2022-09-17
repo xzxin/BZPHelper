@@ -16,12 +16,24 @@ Page({
     },
 
     navigateToStartGame() {
+        if (wx.getStorageSync('cur_game') != null && wx.getStorageSync('cur_game')!="") {
+            wx.showToast({
+                title: '存在进行中牌局',
+                icon: 'error',
+                duration: 2000
+              })
+              return;
+        }
         wx.navigateTo({
           url: '/pages/start_game/start_game',
         })
     },
 
     navigateToGameRecord() {
+        console.log(wx.getStorageSync('cur_game'))
+        if (wx.getStorageSync('cur_game') == null || wx.getStorageSync('cur_game')=="") {
+              return;
+        }
         wx.navigateTo({
           url: '/pages/game_record/game_record',
         })
