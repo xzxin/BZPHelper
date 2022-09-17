@@ -15,7 +15,8 @@ Page({
         current_game_type: 'plain',
         bomb_cnt: 0,
         game_players: [],
-        win_players:[]
+        win_players:[],
+        game_info:[]
     },
 
     navigateToIndex() {
@@ -68,33 +69,35 @@ Page({
         }
         let base = utils.queryScoreWinLose(current_game_type, this.data.bomb_cnt)
         let scores = [];
+        let game_info = this.data.game_info
         for (let i=0; i < game_players.length; i++) {
             let player = game_players[i];
+            let curScore;
             if (win_players.indexOf(player.value) > -1) {
                 // 赢
-                if (current_game_type == "blastLose") {
-                    scores.push(base)
-                } else if (current_game_type == "blastWin") {
-                    scores.push(base * 3)
+                if (current_game_type == "blastWin") {
+                    curScore = base * 3
                 } else {
-                    scores.push(base)
+                    curScore = base
                 }
             } else {
                 // 输
                 if (current_game_type == "blastLose") {
-                    scores.push(-base * 3)
-                } else if (current_game_type == "blastWin") {
-                    scores.push(-base)
+                    curScore = -base * 3
                 } else {
-                    scores.push(-base)
+                    curScore = -base;
                 }
             }
+            scores.push(curScore)
+            game_info.player[i].score = game_info.player[i].score + curScore;
         }
         record["scores"] = scores
         game_records.push(record)
+        console.log(game_info)
         this.setData ({
             hiddenCurGame: true,
-            game_records: game_records
+            game_records: game_records,
+            game_info:game_info
         })
     },
 
@@ -129,11 +132,15 @@ Page({
         let game_record = utils.queryGameRecords();
         let game_info = utils.queryGameInfo();
         let game_player = game_info.player;
+        for (let i=0;i<game_player.length;i++) {
+            game_player[i]["score"] = 0;
+        }
         this.setData({
             game_info: game_info,
             game_record: game_record,
             game_players: game_player
         });
+
         console.log(this.data.game_info)
     },
 

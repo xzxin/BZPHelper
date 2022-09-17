@@ -37,6 +37,7 @@
             <view  wx:for="{{game_info.player}}" wx:for-item="player" class="imgline">
                 <image bindtap="tapImg" src="{{player.path}}" mode="widthFix" class="pic"></image>
                 <text class="item_txt">{{player.label}} </text>
+                <textarea class="item_score">{{player.score}}</textarea>
             </view>
         </view>
     </view>

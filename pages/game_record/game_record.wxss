@@ -69,6 +69,14 @@
     width: 76px;
 }
 
+.item_score {
+    position:absolute;
+    top:10px;
+    left: 100px;
+    width: 60px;
+    height: 60px;
+}
+
 .imgline {
     width: 100%;
     position: relative;
