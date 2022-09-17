@@ -147,6 +147,21 @@
     margin-right: 6px;
 }
 
-.game_type_select {
+.bomb_cnt {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 10px
+}
 
+.bomb_cnt_input {
+    margin-left: 20px;
+}
+
+.win_person_choose {
+    width: 100%;
+    height: 100%;
+    column-count: 2;
+    column-gap: 5rpx;
+    margin-top: 10px
 }

@@ -11,7 +11,9 @@ Page({
         types: [{value: 'plain', name: '赢单', checked: 'true'},
         {value: 'turnoff', name: '关机'},
         {value: 'blastWin', name: '爆赢'},
-        {value: 'blastLose', name: '爆输'}]
+        {value: 'blastLose', name: '爆输'}],
+        current_game_type: 'plain',
+        bomb_cnt: 0
     },
 
     navigateToIndex() {
@@ -44,6 +46,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
+    },
+
+    game_type_change(e) {
+        this.setData({
+            current_game_type: e.detail.value
+        })
     },
 
     /**

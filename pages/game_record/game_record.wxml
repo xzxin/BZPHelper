@@ -39,7 +39,7 @@
             </text>
             <modal hidden="{{hiddenCurGame}}" title="本局战况" confirm-text="确定" cancel-text="取消" bindcancel="cancelInput" bindconfirm="confirmInput">
                 <view class="current_game">
-                    <radio-group bindchange="radioChange">
+                    <radio-group bindchange="game_type_change">
                         <label class="check_label" wx:for="{{types}}" wx:key="{{item.name}}">
 
                         <view class="game_type_select">
@@ -48,6 +48,22 @@
                         </view>
                         </label>
                     </radio-group>
+                    <view class="bomb_cnt">
+                        <label>炸弹数</label>
+                        <input type="number" value="{{bomb_cnt}}" class="bomb_cnt_input" />
+                    </view>
+
+                    <view class="win_person_choose">
+                            <checkbox-group 
+                        bindchange="winPersonChoose">
+                            <view class="win_person_option"  wx:for="{{game_info.player}}" wx:for-item="player">
+                                <label>
+                                    <checkbox value="{{player.value}}"/>
+                                    {{player.label}}
+                                </label>
+                            </view>
+                        </checkbox-group>
+                    </view>
                 </view>
             </modal>
             <image class="new_game_img" mode="widthFix" src="../../images/new.png"
