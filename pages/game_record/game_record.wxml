@@ -19,8 +19,8 @@
                                 <view class="td">{{rank + 1}} </view>
                                 <view class="td">{{game_record.type}} </view>
                                 <view class="td">{{game_record.bombCnt}} </view>
-                                <view class="td" wx:for="{{game_info.player}}"  wx:for-item="player">
-                                {{player.label}}
+                                <view class="td" wx:for="{{game_record.scores}}"  wx:for-item="score">
+                                {{score}}
                                 </view>
                             </view>
                 </block>

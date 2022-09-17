@@ -67,14 +67,30 @@ Page({
             return;
         }
         let base = utils.queryScoreWinLose(current_game_type, this.data.bomb_cnt)
-        console.log("base = ", base)
-        console.log(this.data)
-        console.log(win_players)
+        let scores = [];
         for (let i=0; i < game_players.length; i++) {
             let player = game_players[i];
-
-
+            if (win_players.indexOf(player.value) > -1) {
+                // 赢
+                if (current_game_type == "blastLose") {
+                    scores.push(base)
+                } else if (current_game_type == "blastWin") {
+                    scores.push(base * 3)
+                } else {
+                    scores.push(base)
+                }
+            } else {
+                // 输
+                if (current_game_type == "blastLose") {
+                    scores.push(-base * 3)
+                } else if (current_game_type == "blastWin") {
+                    scores.push(-base)
+                } else {
+                    scores.push(-base)
+                }
+            }
         }
+        record["scores"] = scores
         game_records.push(record)
         this.setData ({
             hiddenCurGame: true,
