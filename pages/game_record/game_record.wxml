@@ -14,6 +14,16 @@
                     {{player.label}}
                     </view>
                 </view>
+                <block wx:for="{{game_records}}" wx:for-index="rank" wx:for-item="game_record">
+                            <view class="tr">
+                                <view class="td">{{rank + 1}} </view>
+                                <view class="td">{{game_record.type}} </view>
+                                <view class="td">{{game_record.bombCnt}} </view>
+                                <view class="td" wx:for="{{game_info.player}}"  wx:for-item="player">
+                                {{player.label}}
+                                </view>
+                            </view>
+                </block>
 
             </scroll-view>
          </view>
@@ -50,7 +60,7 @@
                     </radio-group>
                     <view class="bomb_cnt">
                         <label>炸弹数</label>
-                        <input type="number" value="{{bomb_cnt}}" class="bomb_cnt_input" />
+                        <input type="number"  bindblur="bombCntInput"  class="bomb_cnt_input" />
                     </view>
 
                     <view class="win_person_choose">

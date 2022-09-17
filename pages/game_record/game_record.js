@@ -6,14 +6,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-        game_record:[],
+        game_records:[],
         hiddenCurGame: true,
         types: [{value: 'plain', name: '赢单', checked: 'true'},
         {value: 'turnoff', name: '关机'},
         {value: 'blastWin', name: '爆赢'},
         {value: 'blastLose', name: '爆输'}],
         current_game_type: 'plain',
-        bomb_cnt: 0
+        bomb_cnt: 0,
+        game_players: [],
+        win_players:[]
     },
 
     navigateToIndex() {
@@ -27,12 +29,48 @@ Page({
         })
     },
     confirmInput() {
-        // let game_record = this.data.game_record
-        // record.no = game_record.length + 1
-        // game_record.push(record)
+        let game_records = this.data.game_records
+        let game_players = this.data.game_players
+        let win_players = this.data.win_players
+        if (win_players.length == 0) {
+            wx.showToast({
+                title: '未选择获胜选手',
+                icon: 'error',
+                duration: 2000
+            })
+            return;
+        }
+        let current_game_type = this.data.current_game_type;
+        let record = {};
+        if (current_game_type == "plain") {
+            record["type"] = "赢单";
+        } else if (current_game_type == "turnoff") {
+            record["type"] = "关机";
+        } else {
+            record["type"] = "爆牌";
+        }
+        record["bombCnt"] = this.data.bomb_cnt;
+
+        if (win_players.length == 1 && (current_game_type=="blastWin")) {
+
+        } else if (win_players.length == 2 && (current_game_type=="plain"
+        || current_game_type=="turnoff")) {
+
+        } else if (win_players.length == 3 &&  current_game_type=="blastLose") {
+
+        } else {
+            wx.showToast({
+                title: '输入有误',
+                icon: 'error',
+                duration: 2000
+            })
+            return;
+        }
+
+        game_records.push(record)
         this.setData ({
             hiddenCurGame: true,
-            // game_record: game_record
+            game_records: game_records
         })
     },
 
@@ -66,11 +104,12 @@ Page({
     onShow() {
         let game_record = utils.queryGameRecords();
         let game_info = utils.queryGameInfo();
+        let game_player = game_info.player;
         this.setData({
             game_info: game_info,
-            game_record: game_record
+            game_record: game_record,
+            game_player: game_player
         });
-        console.log(this.data.game_info)
         console.log(this.data.game_info)
     },
 
@@ -107,5 +146,19 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    winPersonChoose(e) {
+        let winPlayers = e.detail.value
+        this.setData({
+            win_players:winPlayers
+        })
+    },
+
+    bombCntInput(e) {
+        console.log(e)
+        this.setData({
+            bomb_cnt:e.detail.value
+        })
     }
 })
