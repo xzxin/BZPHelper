@@ -93,6 +93,8 @@ Page({
         }
         record["scores"] = scores
         game_records.push(record)
+        wx.setStorageSync('game_records', game_records)
+        wx.setStorageSync('cur_game', game_info)
         console.log(game_info)
         this.setData ({
             hiddenCurGame: true,
@@ -129,19 +131,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        let game_record = utils.queryGameRecords();
+        let game_records = utils.queryGameRecords();
         let game_info = utils.queryGameInfo();
-        let game_player = game_info.player;
-        for (let i=0;i<game_player.length;i++) {
-            game_player[i]["score"] = 0;
-        }
+        let game_players = game_info["player"]
         this.setData({
             game_info: game_info,
-            game_record: game_record,
-            game_players: game_player
+            game_records: game_records,
+            game_players: game_players
         });
 
-        console.log(this.data.game_info)
+        console.log(this.data.game_players)
     },
 
     /**
@@ -189,6 +188,15 @@ Page({
     bombCntInput(e) {
         this.setData({
             bomb_cnt:Number(e.detail.value)
+        })
+    },
+
+    endGame(e) {
+        wx.clearStorageSync("cur_game")
+        wx.clearStorageSync("game_records")
+        wx.clearStorageSync("game_players")
+        wx.navigateTo({
+            url: '/pages/index/index',
         })
     }
 })

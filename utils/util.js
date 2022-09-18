@@ -52,7 +52,7 @@ const queryUserRank = () => {
 
 const queryGameRecords = () => {
     var game_records = wx.getStorageSync('game_records')
-    if (game_records == null) {
+    if (game_records == null || game_records == "") {
         return [];
     }
     return game_records;

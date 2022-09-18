@@ -5,14 +5,14 @@ const app = getApp()
 Page({
     data: {
         roles: [
-          {value: 'clx', path: "../../images/clx.png", reward: "", label: "陈立祥"},
-          {value: 'jql', path: "../../images/jql.png", reward: "", label: "金秋龙"},
-          {value: 'xzx', path: "../../images/xzx.png", reward: "", label: "夏振新"},
-          {value: 'tyt', path: "../../images/tyt.png", reward: "", label: "谭言仝"},
-          {value: 'stb', path: "../../images/stb.png", reward: "", label: "施廷波"},
-          {value: 'hp', path: "../../images/hp.png", reward: "", label: "黄鹏"},
-          {value: 'glh', path: "../../images/glh.png", reward: "", label: "郭立恒"},
-          {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩"}
+          {value: 'clx', path: "../../images/clx.png", reward: "", label: "陈立祥", score: 0},
+          {value: 'jql', path: "../../images/jql.png", reward: "", label: "金秋龙", score: 0},
+          {value: 'xzx', path: "../../images/xzx.png", reward: "", label: "夏振新", score: 0},
+          {value: 'tyt', path: "../../images/tyt.png", reward: "", label: "谭言仝", score: 0},
+          {value: 'stb', path: "../../images/stb.png", reward: "", label: "施廷波", score: 0},
+          {value: 'hp', path: "../../images/hp.png", reward: "", label: "黄鹏", score: 0},
+          {value: 'glh', path: "../../images/glh.png", reward: "", label: "郭立恒", score: 0},
+          {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩", score: 0}
         ],
         baseBombRuleIndex: 0,
         baseBombRule:"炸弹翻番",
