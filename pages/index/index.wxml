@@ -22,7 +22,7 @@
                             <view class="tr">
                                 <view class="td">{{rank + 1}} </view>
                                 <view class="td">{{item.name}} </view>
-                                <view class="td">{{item.winRate}} </view>
+                                <view class="td">{{item.winRate}}% </view>
                                 <view class="td">{{item.total}} </view>
                                 <view class="td">{{item.win}} </view>
                             </view>
@@ -44,7 +44,7 @@
                             <view class="tr">
                                 <view class="td">{{rank + 1}} </view>
                                 <view class="td">{{item.name}} </view>
-                                <view class="td">{{item.blastWinRate}} </view>
+                                <view class="td">{{item.blastWinRate}}% </view>
                                 <view class="td">{{item.blastTotal}} </view>
                                 <view class="td">{{item.blastWin}} </view>
                             </view>
@@ -68,10 +68,13 @@
 
     <view class="options">
         <text>
-            新的牌局
+            选项
         </text>
         <image class="start_game_img" mode="widthFix" src="../../images/start.png"
         bindtap="navigateToStartGame">
+        </image>
+        <image class="init_game_img" mode="widthFix" src="../../images/init.png"
+        bindtap="tapInitSys">
         </image>
     </view>
 </view>

@@ -47,8 +47,10 @@ Page({
             record["type"] = "赢单";
         } else if (current_game_type == "turnoff") {
             record["type"] = "关机";
+        } else if (current_game_type == "blastWin"){
+            record["type"] = "爆赢";
         } else {
-            record["type"] = "爆牌";
+            record["type"] = "爆输";
         }
         record["bombCnt"] = this.data.bomb_cnt;
 

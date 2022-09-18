@@ -119,5 +119,23 @@ Page({
      */
     onShareAppMessage() {
 
+    },
+
+    tapInitSys() {
+        wx.showModal({
+          title: '重置数据',
+          content: '确认要重置排行榜和牌局吗？',
+          icon: "none",
+          confirmText: "是",
+          cancelText:'否',
+          success: function(res) {
+              if (res.cancel) {
+
+              } else {
+                  wx.clearStorageSync()
+              }
+          }
+            
+        })
     }
 })

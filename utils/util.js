@@ -181,6 +181,7 @@ const addResult = () => {
             let score = game_record["scores"][j]
             let player = game_player[j]
             let player_name = player.label
+            let type = game_record.type
             for (let user_index = 0; user_index < user_info_list.length; user_index ++) {
                 let user_info = user_info_list[user_index]
                 if (user_info["name"] != player_name) {
@@ -190,7 +191,20 @@ const addResult = () => {
                 if (score > 0) {
                     user_info["win"] = user_info["win"] + 1;
                 }
-                user_info["winRate"] = 100 * user_info["win"] / user_info["total"];
+                user_info["winRate"] =Math.floor(100 * user_info["win"] / user_info["total"]);
+                if (type == "爆赢") {
+                    if (score > 0) {
+                        user_info["blastWin"] = user_info["blastWin"] + 1;
+                        user_info["blastTotal"] = user_info["blastTotal"] + 1;
+                        user_info["blastWinRate"] =Math.floor(100 * user_info["blastWin"] / user_info["blastTotal"]);
+                    }
+                }
+                if (type == "爆输") {
+                    if (score < 0) {
+                        user_info["blastTotal"] = user_info["blastTotal"] + 1;
+                        user_info["blastWinRate"] =Math.floor(100 * user_info["blastWin"] / user_info["blastTotal"]);
+                    }
+                }
             }
         }
     }

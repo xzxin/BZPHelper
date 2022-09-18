@@ -127,3 +127,9 @@
     flex: 0 0 auto;
     
 }
+
+.init_game_img {
+    margin-top: 10px;
+    width: 50px;
+    margin-left: 40px;
+}
