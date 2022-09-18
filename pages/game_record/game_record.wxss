@@ -189,6 +189,10 @@
     height: 25px;
 }
 
+.bombCntLabel {
+    width: 100px;
+}
+
 .hidden {
     display:none;text-align:center;line-height:100rpx;
 }

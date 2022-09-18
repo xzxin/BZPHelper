@@ -140,12 +140,12 @@ Page({
         let paoKing = wx.getStorageSync('paoKing')
         console.log(paoKing)
         for (let i=0;i<game_players.length;i++) {
-            let game_players = game_players[i]
-            if (game_players.label == baoKing) {
-                role.isBaoKing = true
+            let game_player = game_players[i]
+            if (game_player.label == baoKing) {
+                game_player.isBaoKing = true
             }
-            if (role.label == paoKing) {
-                role.isPaoKing = true
+            if (game_player.label == paoKing) {
+                game_player.isPaoKing = true
             }
         }
         this.setData({

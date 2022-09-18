@@ -64,7 +64,7 @@
                         </label>
                     </radio-group>
                     <view class="bomb_cnt">
-                        <label>炸弹数</label>
+                        <label class="bombCntLabel">炸弹数</label>
                         <input type="number"  bindblur="bombCntInput"  class="bomb_cnt_input" />
                     </view>
 
