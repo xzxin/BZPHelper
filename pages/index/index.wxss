@@ -18,7 +18,7 @@
 .rank_flag {
     width: 24px;
     position: absolute;
-    left: 60px
+    left: 70px
 }
 
 .rank {
