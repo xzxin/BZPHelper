@@ -20,7 +20,7 @@ Page({
         baoBombRule:"首炸翻番，其余加底",
         allBaoBombRules:["首炸翻番，其余加底", "炸弹翻番", "炸弹加底"],
         game_info: {},
-        game_name: ""
+        game_name: "炮王争霸"
       },
       bindBaseBombRuleChange(e) {
         this.setData({

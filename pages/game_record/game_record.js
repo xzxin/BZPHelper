@@ -192,9 +192,9 @@ Page({
     },
 
     endGame(e) {
-        wx.clearStorageSync("cur_game")
-        wx.clearStorageSync("game_records")
-        wx.clearStorageSync("game_players")
+        utils.addResult();
+        wx.setStorageSync('cur_game', "")
+        wx.setStorageSync('game_records', [])
         wx.navigateTo({
             url: '/pages/index/index',
         })

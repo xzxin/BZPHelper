@@ -15,6 +15,7 @@ const queryGameInfo = () => {
 
 const queryUserInfoList = () => {
     var user_info_list = wx.getStorageSync('user_info_list')
+    console.log(user_info_list)
     if (user_info_list === "") {
         user_info_list = user_default_info_list()
         wx.setStorageSync('user_info_list', user_info_list)
@@ -93,7 +94,7 @@ const user_default_info_list = () => {
             "name": "陈立祥",
             "total": 0,
             "win": 0,
-            "winRate": 80,
+            "winRate": 0,
             "blastTotal": 0,
             "blastWin": 0,
             "blastWinRate": 0
@@ -102,7 +103,7 @@ const user_default_info_list = () => {
             "name": "金秋龙",
             "total": 0,
             "win": 0,
-            "winRate": 70,
+            "winRate": 0,
             "blastTotal": 0,
             "blastWin": 0,
             "blastWinRate": 0
@@ -111,7 +112,7 @@ const user_default_info_list = () => {
             "name": "夏振新",
             "total": 0,
             "win": 0,
-            "winRate": 100,
+            "winRate": 0,
             "blastTotal": 0,
             "blastWin": 0,
             "blastWinRate": 0
@@ -119,7 +120,7 @@ const user_default_info_list = () => {
         {
             "name": "谭言仝",
             "total": 0,
-            "win": 92,
+            "win": 0,
             "winRate": 0,
             "blastTotal": 0,
             "blastWin": 0,
@@ -127,7 +128,7 @@ const user_default_info_list = () => {
         },
         {
             "name": "施廷波",
-            "total": 42,
+            "total": 0,
             "win": 0,
             "winRate": 0,
             "blastTotal": 0,
@@ -136,7 +137,7 @@ const user_default_info_list = () => {
         },
         {
             "name": "黄鹏",
-            "total": 79,
+            "total": 0,
             "win": 0,
             "winRate": 0,
             "blastTotal": 0,
@@ -170,11 +171,38 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const addResult = () => {
+    let game_player = wx.getStorageSync('cur_game')["player"]
+    let game_records = queryGameRecords()
+    let user_info_list = queryUserInfoList()
+    for (let i=0;i<game_records.length;i++) {
+        let game_record = game_records[i]
+        for (let j=0;j<game_player.length;j++) {
+            let score = game_record["scores"][j]
+            let player = game_player[j]
+            let player_name = player.label
+            for (let user_index = 0; user_index < user_info_list.length; user_index ++) {
+                let user_info = user_info_list[user_index]
+                if (user_info["name"] != player_name) {
+                    continue;
+                }
+                user_info["total"] = user_info["total"] + 1;
+                if (score > 0) {
+                    user_info["win"] = user_info["win"] + 1;
+                }
+                user_info["winRate"] = 100 * user_info["win"] / user_info["total"];
+            }
+        }
+    }
+    wx.setStorageSync('user_info_list', user_info_list);
+}
+
 module.exports = {
   formatTime,
   queryUserRank,
   queryUserBlast,
   queryGameInfo,
   queryGameRecords,
-  queryScoreWinLose
+  queryScoreWinLose,
+  addResult
 }
