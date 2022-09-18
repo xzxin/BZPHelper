@@ -12,6 +12,10 @@
                     <image bindtap="tapImg" src="{{role.path}}" mode="widthFix" class="pic"></image>
                     <checkbox class="checkbox"  value="{{role.value}}"/>
                     <text class="item_txt">{{role.label}} </text>
+                    <image class="{{role.isBaoKing ? 'showImageBao':'hidden'}}"
+                    mode="widthFix" src="../../images/baojimu.png"></image>
+                    <image class="{{role.isPaoKing ? 'showImagePao':'hidden'}}"
+                    mode="widthFix" src="../../images/paowang.png"></image>
                  </view>
             </checkbox-group>
         </view>

@@ -34,6 +34,7 @@ const queryUserBlast = () => {
             }
         }
     }
+    wx.setStorageSync('baoKing', user_info_list[0].name)
     return user_info_list
 }
 
@@ -48,6 +49,7 @@ const queryUserRank = () => {
             }
         }
     }
+    wx.setStorageSync('paoKing', user_info_list[0].name)
     return user_info_list
 }
 

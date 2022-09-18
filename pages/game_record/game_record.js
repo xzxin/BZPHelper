@@ -136,13 +136,23 @@ Page({
         let game_records = utils.queryGameRecords();
         let game_info = utils.queryGameInfo();
         let game_players = game_info["player"]
+        let baoKing = wx.getStorageSync('baoKing')
+        let paoKing = wx.getStorageSync('paoKing')
+        console.log(paoKing)
+        for (let i=0;i<game_players.length;i++) {
+            let game_players = game_players[i]
+            if (game_players.label == baoKing) {
+                role.isBaoKing = true
+            }
+            if (role.label == paoKing) {
+                role.isPaoKing = true
+            }
+        }
         this.setData({
             game_info: game_info,
             game_records: game_records,
             game_players: game_players
         });
-
-        console.log(this.data.game_players)
     },
 
     /**

@@ -36,6 +36,10 @@
         <view class="cur_status_detail">
             <view  wx:for="{{game_info.player}}" wx:for-item="player" class="imgline">
                 <image bindtap="tapImg" src="{{player.path}}" mode="widthFix" class="pic"></image>
+                <image class="{{player.isBaoKing ? 'showImageBao':'hidden'}}"
+                    mode="widthFix" src="../../images/baojimu.png"></image>
+                <image class="{{player.isPaoKing ? 'showImagePao':'hidden'}}"
+                mode="widthFix" src="../../images/paowang.png"></image>
                 <text class="item_txt">{{player.label}} </text>
                 <textarea class="item_score">{{player.score}}</textarea>
             </view>

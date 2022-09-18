@@ -5,14 +5,14 @@ const app = getApp()
 Page({
     data: {
         roles: [
-          {value: 'clx', path: "../../images/clx.png", reward: "", label: "陈立祥", score: 0},
-          {value: 'jql', path: "../../images/jql.png", reward: "", label: "金秋龙", score: 0},
-          {value: 'xzx', path: "../../images/xzx.png", reward: "", label: "夏振新", score: 0},
-          {value: 'tyt', path: "../../images/tyt.png", reward: "", label: "谭言仝", score: 0},
-          {value: 'stb', path: "../../images/stb.png", reward: "", label: "施廷波", score: 0},
-          {value: 'hp', path: "../../images/hp.png", reward: "", label: "黄鹏", score: 0},
-          {value: 'glh', path: "../../images/glh.png", reward: "", label: "郭立恒", score: 0},
-          {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩", score: 0}
+          {value: 'clx', path: "../../images/clx.png", reward: "", label: "陈立祥", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'jql', path: "../../images/jql.png", reward: "", label: "金秋龙", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'xzx', path: "../../images/xzx.png", reward: "", label: "夏振新", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'tyt', path: "../../images/tyt.png", reward: "", label: "谭言仝", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'stb', path: "../../images/stb.png", reward: "", label: "施廷波", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'hp', path: "../../images/hp.png", reward: "", label: "黄鹏", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'glh', path: "../../images/glh.png", reward: "", label: "郭立恒", score: 0, isPaoKing: false, isBaoKing: false},
+          {value: 'sy', path: "../../images/sy.png", reward: "", label: "石岩", score: 0, isPaoKing: false, isBaoKing: false}
         ],
         baseBombRuleIndex: 0,
         baseBombRule:"炸弹翻番",
@@ -20,7 +20,9 @@ Page({
         baoBombRule:"首炸翻番，其余加底",
         allBaoBombRules:["首炸翻番，其余加底", "炸弹翻番", "炸弹加底"],
         game_info: {},
-        game_name: "炮王争霸"
+        game_name: "炮王争霸",
+        baoKing: "",
+        paoKing: ""
       },
       bindBaseBombRuleChange(e) {
         this.setData({
@@ -41,6 +43,27 @@ Page({
           url: '/pages/index/index',
         })
       },
+      onShow() {
+        let roles = this.data.roles;
+        let baoKing = wx.getStorageSync('baoKing')
+        let paoKing = wx.getStorageSync('paoKing')
+        console.log(paoKing)
+        for (let i=0;i<roles.length;i++) {
+            let role = roles[i]
+            if (role.label == baoKing) {
+                role.isBaoKing = true
+            }
+            if (role.label == paoKing) {
+                role.isPaoKing = true
+            }
+        }
+        this.setData({
+            roles: roles,
+            baoKing: baoKing,
+            paoKing: paoKing,
+        })
+        console.log(roles)
+    },
     game_name_change(res) {
         this.setData ({
             game_name: res.detail.value
